@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#151a2b">
+<title>Fire detection &amp; IoT solutions | STI Risk · Solutions Tech Innovation</title>
+<meta name="description" content="Stay ahead of fire risks with our advanced fire detection and IoT solutions. Real-time monitoring, predictive alerts and seamless integration deliver superior safety and proactive fire prevention. Detection services from STI Risk (Solutions Tech Innovation), Johannesburg.">
+<meta name="author" content="Solutions Tech Innovation">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fire detection &amp; IoT solutions | STI Risk · Solutions Tech Innovation">
+<meta property="og:description" content="Stay ahead of fire risks with our advanced fire detection and IoT solutions. Real-time monitoring, predictive alerts and seamless integration deliver superior safety and proactive fire prevention. Detection services from STI Risk (Solutions Tech Innovation), Johannesburg.">
+<meta property="og:image" content="./assets/mark-512.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {DEFAULT:'#e2174b', 50:'#fdeef2', 100:'#fbd5df', 200:'#f6a9bc', 300:'#f07592', 400:'#e9466d', 500:'#e2174b', 600:'#c01140', 700:'#9b0e35', 800:'#760b29', 900:'#520820'},
+        accent:  {DEFAULT:'#f7941d', 50:'#fef5e8', 100:'#fde5c3', 200:'#fbcb88', 300:'#f9b14d', 400:'#f8a234', 500:'#f7941d', 600:'#d97a0b', 700:'#a95f08', 800:'#7a4506', 900:'#4d2b04'},
+        ink:     {DEFAULT:'#151a2b', 900:'#0d111d', 800:'#151a2b', 700:'#1f2538', 600:'#2a3146', 500:'#3b4360', 400:'#5b6480'},
+        mist:    {DEFAULT:'#f7f7fa', dark:'#ecedf3'}
+      },
+      fontFamily: {
+        display: ['Outfit', 'system-ui', 'sans-serif'],
+        sans:    ['Inter', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: Inter, system-ui, sans-serif; color:#1f2538; background:#fff; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3,h4,.font-display { font-family: Outfit, system-ui, sans-serif; letter-spacing:-.015em; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(40px) } to { opacity:1; transform:translateY(0) } }
+  @keyframes spinSlow { to { transform:rotate(360deg) } }
+  @keyframes dash { to { stroke-dashoffset:-24 } }
+  @keyframes pulseRing { 0% { box-shadow:0 0 0 0 rgba(226,23,75,.5) } 70% { box-shadow:0 0 0 16px rgba(226,23,75,0) } 100% { box-shadow:0 0 0 0 rgba(226,23,75,0) } }
+  @keyframes scrollDot { 0% { transform:translateY(0); opacity:1 } 80% { transform:translateY(14px); opacity:0 } 100% { opacity:0 } }
+  .fade-up { animation: fadeUp .9s cubic-bezier(.22,1,.36,1) both; }
+  .d1 { animation-delay:.1s } .d2 { animation-delay:.25s } .d3 { animation-delay:.4s } .d4 { animation-delay:.55s } .d5 { animation-delay:.7s }
+
+  .reveal { opacity:0; transform:translateY(36px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+  .reveal.in { opacity:1; transform:none; }
+  .reveal.r2 { transition-delay:.1s } .reveal.r3 { transition-delay:.2s } .reveal.r4 { transition-delay:.3s }
+
+  .grad-text { background:linear-gradient(90deg,#e2174b 0%,#f05a2c 55%,#f7941d 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .grad-bg { background:linear-gradient(135deg,#e2174b 0%,#f05a2c 55%,#f7941d 100%); }
+
+  /* Parallax hero */
+  .hero-bg { background-image:url('./assets/hero-plant.jpg'); background-size:cover; background-position:center; background-attachment:fixed; }
+  .hero-overlay { background: linear-gradient(105deg, rgba(13,17,29,.97) 0%, rgba(21,26,43,.9) 45%, rgba(82,8,32,.62) 78%, rgba(226,23,75,.35) 100%); }
+  .hero-fade { height:120px; background:linear-gradient(to bottom, rgba(255,255,255,0), #fff); pointer-events:none; }
+  .ring-deco { position:absolute; pointer-events:none; animation:spinSlow 90s linear infinite; }
+  .parallax-band { background-size:cover; background-position:center; background-attachment:fixed; }
+  @media (max-width:768px) { .hero-bg, .parallax-band { background-attachment:scroll; } }
+
+  .glass { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+  .paper-glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+
+  /* Nav */
+  #main-nav { transition: background .35s ease, box-shadow .35s ease, padding .35s ease; }
+  #main-nav.scrolled { background:rgba(255,255,255,.97); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow:0 6px 30px rgba(21,26,43,.08); padding-top:.65rem; padding-bottom:.65rem; }
+  #main-nav .nav-link { color:rgba(255,255,255,.85); }
+  #main-nav .nav-link:hover { color:#f9b14d; }
+  #main-nav.scrolled .nav-link { color:#2a3146; }
+  #main-nav.scrolled .nav-link:hover { color:#e2174b; }
+  #main-nav .brand-name { color:#fff; }
+  #main-nav.scrolled .brand-name { color:#151a2b; }
+  #main-nav .brand-sub { color:rgba(255,255,255,.55); }
+  #main-nav.scrolled .brand-sub { color:#5b6480; }
+  #main-nav .burger-line { background:#fff; }
+  #main-nav.scrolled .burger-line { background:#151a2b; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:linear-gradient(90deg,#e2174b,#f7941d); transition:width .3s ease; }
+  .nav-link:hover::after { width:100%; }
+
+  #mobile-menu { max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.22,1,.36,1); }
+  #mobile-menu.open { max-height:640px; }
+  .burger-line { display:block; width:22px; height:2px; border-radius:2px; transition: transform .3s ease, opacity .3s ease; }
+  #burger.open .l1 { transform:translateY(6px) rotate(45deg); }
+  #burger.open .l2 { opacity:0; }
+  #burger.open .l3 { transform:translateY(-6px) rotate(-45deg); }
+
+  /* Buttons */
+  .btn-primary { background:linear-gradient(135deg,#e2174b,#f05a2c 60%,#f7941d); color:#fff; box-shadow:0 4px 20px rgba(226,23,75,.4); transition:transform .25s ease, box-shadow .25s ease; }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(226,23,75,.55); }
+  .btn-ink { background:#151a2b; color:#fff; box-shadow:0 4px 20px rgba(21,26,43,.25); transition:transform .25s ease, box-shadow .25s ease, background .25s ease; }
+  .btn-ink:hover { transform:translateY(-2px); background:#1f2538; box-shadow:0 8px 32px rgba(21,26,43,.35); }
+  .btn-outline { border:2px solid rgba(255,255,255,.6); color:#fff; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); transition:transform .25s ease, background .25s ease, border-color .25s ease; }
+  .btn-outline:hover { transform:translateY(-2px); background:rgba(255,255,255,.1); border-color:#fff; }
+
+  .eyebrow { display:inline-flex; align-items:center; gap:.75rem; font-size:.78rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#5b6480; }
+  .eyebrow::before { content:''; width:42px; height:2px; background:linear-gradient(90deg,#e2174b,#f7941d); border-radius:2px; }
+  .section-badge { display:inline-flex; align-items:center; gap:.5rem; background:linear-gradient(135deg,#fdeef2,#fef5e8); color:#c01140; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.4rem 1rem; border-radius:50px; border:1px solid #fbd5df; }
+  .section-badge.dark { background:rgba(247,148,29,.1); color:#f9b14d; border:1px solid rgba(247,148,29,.3); }
+  .accent-divider { width:48px; height:3px; background:linear-gradient(90deg,#e2174b,#f7941d); border-radius:4px; }
+
+  .card-lift { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease; }
+  .card-lift:hover { transform:translateY(-6px); box-shadow:0 24px 50px -14px rgba(118,11,41,.22); border-color:#f6a9bc; }
+  .icon-tile { transition: transform .35s cubic-bezier(.22,1,.36,1); }
+  .card-lift:hover .icon-tile { transform: scale(1.08) rotate(-3deg); }
+  .num-chip { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:2.4rem; border-radius:10px; font-family:Outfit,sans-serif; font-weight:800; color:#fff; font-size:.95rem; }
+  .num-chip.red { background:#e2174b; } .num-chip.orange { background:#f7941d; }
+
+  /* Problem: 50 -> 50 */
+  .stat-ring { width:150px; height:150px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .stat-ring.outline { background:#fff; border:2px solid #f6a9bc; box-shadow:0 0 0 14px rgba(226,23,75,.05), 0 20px 50px -20px rgba(226,23,75,.35); }
+  .stat-ring.solid { color:#fff; box-shadow:0 0 0 14px rgba(240,90,44,.08), 0 24px 60px -18px rgba(226,23,75,.6); animation:pulseRing 2.6s ease-out infinite; }
+  @media (min-width:640px) { .stat-ring { width:190px; height:190px; } }
+  .dotted-link { flex:1; min-width:40px; border-top:3px dotted #f07592; position:relative; }
+
+  /* Hub */
+  .hub { position:relative; width:100%; max-width:520px; aspect-ratio:1/1; margin:0 auto; }
+  .hub svg.links { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+  .hub svg.links line { stroke:url(#hubgrad); stroke-width:1.6; stroke-dasharray:5 7; animation:dash 1.6s linear infinite; }
+  .hub-center { position:absolute; left:50%; top:50%; width:38%; aspect-ratio:1/1; transform:translate(-50%,-50%); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#fff; box-shadow:0 0 0 18px rgba(240,90,44,.08), 0 0 0 36px rgba(240,90,44,.05), 0 30px 60px -20px rgba(226,23,75,.6); }
+  .hub-node { position:absolute; width:23%; aspect-ratio:1/1; transform:translate(-50%,-50%); border-radius:50%; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3rem; text-align:center; box-shadow:0 12px 30px -12px rgba(21,26,43,.25); transition:transform .3s ease, box-shadow .3s ease; }
+  .hub-node:hover { transform:translate(-50%,-50%) scale(1.07); box-shadow:0 18px 40px -12px rgba(226,23,75,.35); }
+  .hub-node.r { border:2px solid #f6a9bc; } .hub-node.o { border:2px solid #fbcb88; }
+  .hub-node span { font-size:clamp(.6rem,1.6vw,.78rem); font-weight:600; color:#1f2538; line-height:1.15; padding:0 .3rem; }
+  .hub-node i { font-size:clamp(.9rem,2.4vw,1.25rem); }
+
+  /* Steps */
+  .step-circle { width:92px; height:92px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; position:relative; transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+  .step-circle.r { border:2px solid #f6a9bc; box-shadow:0 0 0 8px rgba(226,23,75,.05); color:#e2174b; }
+  .step-circle.o { border:2px solid #fbcb88; box-shadow:0 0 0 8px rgba(247,148,29,.06); color:#f7941d; }
+  .step:hover .step-circle { transform:translateY(-4px) scale(1.05); box-shadow:0 16px 34px -12px rgba(226,23,75,.4); }
+  .step-num { position:absolute; top:-6px; right:-6px; width:30px; height:30px; border-radius:50%; color:#fff; font-family:Outfit,sans-serif; font-weight:800; font-size:.8rem; display:flex; align-items:center; justify-content:center; border:3px solid #fff; }
+  .step-arrow { color:#f07592; }
+
+  /* Platform */
+  .donut circle.track { stroke:#ecedf3; }
+  .donut circle.val { stroke:url(#donutgrad); stroke-linecap:round; transition:stroke-dashoffset 1.6s cubic-bezier(.22,1,.36,1); }
+  .bar { height:8px; border-radius:6px; background:#ecedf3; overflow:hidden; }
+  .bar > div { height:100%; border-radius:6px; width:0; transition:width 1.4s cubic-bezier(.22,1,.36,1); }
+  .stake { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+  .stake:hover { transform:translateX(4px); border-color:#f6a9bc; box-shadow:0 12px 30px -16px rgba(226,23,75,.35); }
+  .chain-dot { width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.1rem; box-shadow:0 0 0 6px rgba(255,255,255,.06); transition:transform .3s ease; }
+  .chain-item:hover .chain-dot { transform:scale(1.1); }
+
+  /* Case studies */
+  .case-card { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, opacity .3s ease; }
+  .case-card:hover { transform:translateY(-5px); box-shadow:0 22px 44px -18px rgba(21,26,43,.3); }
+  .case-card.hide { display:none; }
+  .filter-btn { border:1.5px solid #ecedf3; color:#2a3146; background:#fff; transition: all .2s ease; }
+  .filter-btn:hover { border-color:#f6a9bc; color:#c01140; }
+  .filter-btn.active { background:#151a2b; border-color:#151a2b; color:#fff; }
+
+  .logo-card { transition: transform .3s ease, box-shadow .3s ease; }
+  .logo-card:hover { transform:translateY(-4px); box-shadow:0 16px 34px -16px rgba(21,26,43,.3); }
+  .logo-card img { filter:grayscale(1); opacity:.75; transition:filter .3s ease, opacity .3s ease; }
+  .logo-card:hover img { filter:none; opacity:1; }
+
+  .faq-item .faq-answer { max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.22,1,.36,1); }
+  .faq-item.open .faq-answer { max-height:360px; }
+  .faq-item .chev { transition: transform .35s ease; }
+  .faq-item.open .chev { transform: rotate(180deg); }
+  .faq-item.open { border-color:#f6a9bc; box-shadow:0 12px 32px -14px rgba(226,23,75,.3); }
+
+  .field { width:100%; border:1.5px solid #e3e5ee; border-radius:12px; padding:.8rem 1rem; font:inherit; font-size:.95rem; background:#fff; color:#1f2538; transition:border-color .2s ease, box-shadow .2s ease; }
+  .field:focus { outline:none; border-color:#e2174b; box-shadow:0 0 0 4px rgba(226,23,75,.12); }
+  .label { display:block; font-size:.82rem; font-weight:600; color:#2a3146; margin-bottom:.4rem; }
+
+  .scroll-mouse { width:24px; height:38px; border:2px solid rgba(255,255,255,.55); border-radius:14px; position:relative; }
+  .scroll-mouse::after { content:''; position:absolute; left:50%; top:7px; width:4px; height:8px; margin-left:-2px; border-radius:2px; background:#f7941d; animation:scrollDot 1.8s ease-in-out infinite; }
+
+  #to-top { opacity:0; pointer-events:none; transform:translateY(12px); transition:all .35s ease; }
+  #to-top.show { opacity:1; pointer-events:auto; transform:none; }
+
+  #wa-float { position:fixed; left:22px; bottom:22px; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow:0 4px 20px rgba(37,211,102,.4); z-index:9998; transition:transform .25s ease, box-shadow .25s ease; }
+  #wa-float:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 8px 30px rgba(37,211,102,.55); }
+  #wa-float .wa-tip { position:absolute; left:66px; white-space:nowrap; background:#151a2b; color:#fff; font-size:.78rem; font-weight:600; padding:.4rem .7rem; border-radius:8px; opacity:0; transform:translateX(-6px); transition:all .25s ease; pointer-events:none; }
+  #wa-float:hover .wa-tip { opacity:1; transform:none; }
+
+  section[id] { scroll-margin-top:84px; }
+  .form-status { display:none; }
+  .form-status.show { display:block; }
+</style>
+  <link rel="icon" href="./assets/favicon.png">
+  <link rel="shortcut icon" href="./assets/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/mark-256.png">
+  </head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 flex items-center justify-between gap-3 sm:gap-6">
+    <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 min-w-0 xl:shrink-0" aria-label="Solutions Tech Innovation home">
+      <img src="./assets/mark-256.png" alt="Solutions Tech Innovation" class="w-10 h-10 sm:w-11 sm:h-11 shrink-0">
+      <span class="leading-tight">
+        <span class="brand-name block font-display font-extrabold uppercase tracking-wide text-[.8rem] sm:text-[.98rem] whitespace-nowrap transition-colors">Solutions Tech Innovation</span>
+        <span class="brand-sub block text-[.55rem] sm:text-[.62rem] font-semibold uppercase tracking-[.12em] sm:tracking-[.18em] whitespace-nowrap transition-colors">STI Risk · Fire risk &amp; compliance</span>
+      </span>
+    </a>
+    <div class="hidden xl:flex items-center gap-5 text-[.88rem] font-medium whitespace-nowrap">
+      <a href="index.html#problem" class="nav-link transition-colors">The problem</a>
+      <a href="index.html#service" class="nav-link transition-colors">Managed service</a>
+      <a href="index.html#platform" class="nav-link transition-colors">Platform</a>
+      <a href="index.html#solutions" class="nav-link transition-colors">Solutions</a>
+      <a href="index.html#cases" class="nav-link transition-colors">Case studies</a>
+      <a href="partner-programme.html" class="nav-link transition-colors">Partners</a>
+      <a href="index.html#contact" class="nav-link transition-colors">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden sm:inline-flex btn-primary rounded-full px-5 py-2.5 text-sm font-semibold items-center gap-2 whitespace-nowrap"><i class="fas fa-calendar-check text-xs"></i> Book a consultation</a>
+      <button id="burger" class="xl:hidden shrink-0 w-11 h-11 flex flex-col items-center justify-center gap-[4px]" aria-label="Open menu" aria-expanded="false">
+        <span class="burger-line l1"></span><span class="burger-line l2"></span><span class="burger-line l3"></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="xl:hidden bg-white">
+    <div class="px-5 py-4 flex flex-col gap-1 text-ink-700 font-medium border-t border-mist-dark">
+      <a href="index.html#problem" class="mobile-link py-2.5">The problem</a>
+      <a href="index.html#service" class="mobile-link py-2.5">Managed service</a>
+      <a href="index.html#scope" class="mobile-link py-2.5">Scope</a>
+      <a href="index.html#platform" class="mobile-link py-2.5">Platform</a>
+      <a href="index.html#solutions" class="mobile-link py-2.5">Solutions</a>
+      <a href="index.html#cases" class="mobile-link py-2.5">Case studies</a>
+      <a href="partner-programme.html" class="mobile-link py-2.5">Partner programme</a>
+      <a href="index.html#faq" class="mobile-link py-2.5">FAQ</a>
+      <a href="index.html#contact" class="mobile-link py-2.5">Contact</a>
+      <a href="#contact" class="mobile-link btn-primary rounded-full px-5 py-3 mt-2 text-center font-semibold">Book a consultation</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative min-h-[80vh] flex items-center overflow-hidden">
+  <div class="hero-bg absolute inset-0" style="background-image:url('./assets/svc-fire-detection-iot-b.jpg')"></div>
+  <div class="hero-overlay absolute inset-0"></div>
+  <img src="./assets/mark-512.png" alt="" aria-hidden="true" class="ring-deco w-[560px] -right-40 -top-24 opacity-[.12] hidden md:block">
+  <div class="hero-fade absolute bottom-0 inset-x-0"></div>
+  <div class="relative z-20 max-w-7xl mx-auto px-5 lg:px-8 pt-32 pb-24 w-full">
+    <nav class="fade-up d1 flex flex-wrap items-center gap-2 text-sm text-white/60" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-white transition">Home</a><i class="fas fa-chevron-right text-[.6rem]"></i>
+      <a href="index.html#solutions" class="hover:text-white transition">Solutions</a><i class="fas fa-chevron-right text-[.6rem]"></i>
+      <span class="text-white/85">Detection services</span>
+    </nav>
+    <div class="mt-6 flex items-center gap-4 fade-up d2">
+      <span class="w-16 h-16 rounded-2xl grad-bg p-3 shadow-lg shadow-primary/30"><img src="./assets/ic-fire.png" alt="" class="w-full h-full object-contain"></span>
+      <span class="glass rounded-full px-4 py-2 text-white/85 text-xs font-semibold uppercase tracking-[.16em]">Fire detection &amp; IoT solutions</span>
+    </div>
+    <h1 class="fade-up d3 mt-6 font-display font-extrabold text-white text-[2.4rem] leading-[1.05] sm:text-6xl max-w-4xl">Enhance fire safety with cutting-edge IoT solutions</h1>
+    <p class="fade-up d4 mt-5 font-display font-bold text-2xl sm:text-3xl grad-text inline-block">Detect early, protect always.</p>
+    <div class="fade-up d5 mt-9 flex flex-wrap gap-4">
+      <a href="#contact" class="btn-primary rounded-full px-7 py-4 font-semibold inline-flex items-center gap-2"><i class="fas fa-comments"></i> Let's chat</a>
+      <a href="tel:+27660650602" class="btn-outline rounded-full px-7 py-4 font-semibold inline-flex items-center gap-2"><i class="fas fa-phone"></i> 066 065 0602</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="relative py-24 lg:py-28 overflow-hidden">
+  <div class="paper-glow w-[480px] h-[480px] -right-40 -top-20 bg-primary-100 opacity-60"></div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal relative">
+      <img src="./assets/svc-fire-detection-iot-a.jpg" alt="Fire detection &amp; IoT solutions" class="w-full aspect-square object-cover rounded-[28px] shadow-2xl shadow-ink/20" loading="lazy">
+      <div class="absolute -bottom-6 -right-4 sm:right-6 rounded-2xl bg-white/95 shadow-xl px-5 py-4 flex items-center gap-3 border border-mist-dark">
+        <span class="w-11 h-11 rounded-xl grad-bg flex items-center justify-center text-white"><i class="fas fa-shield-heart"></i></span>
+        <div><div class="text-xs font-bold uppercase tracking-[.14em] text-ink-400">Detection services</div><div class="font-display font-bold text-ink">Detect early, protect always.</div></div>
+      </div>
+    </div>
+    <div class="reveal r2">
+      <span class="eyebrow">Fire detection &amp; IoT solutions</span>
+      <h2 class="mt-5 font-display font-extrabold text-4xl sm:text-[2.8rem] leading-[1.06] text-ink">Next-generation fire detection with IoT intelligence</h2>
+      <p class="mt-5 text-lg text-ink-400 leading-relaxed">Stay ahead of fire risks with our advanced fire detection and IoT solutions. Real-time monitoring, predictive alerts and seamless integration deliver superior safety and proactive fire prevention.</p>
+      <ul class="mt-8 space-y-5"><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-signal"></i></span><div><h4 class="font-display font-bold text-ink">Real-time monitoring</h4><p class="text-sm text-ink-400">Smart IoT technology detects risks before they escalate.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-plug-circle-check"></i></span><div><h4 class="font-display font-bold text-ink">Seamless integration</h4><p class="text-sm text-ink-400">Connects with existing safety systems for enhanced protection.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-bell"></i></span><div><h4 class="font-display font-bold text-ink">Predictive alerts</h4><p class="text-sm text-ink-400">Early warning notifications to prevent fire-related damage.</p></div></li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY IT MATTERS ============ -->
+<section class="relative py-20 overflow-hidden bg-ink text-white">
+  <div class="parallax-band absolute inset-0 opacity-[.14]" style="background-image:url('./assets/svc-fire-detection-iot-b.jpg')"></div>
+  <img src="./assets/mark-512.png" alt="" aria-hidden="true" class="ring-deco w-[420px] -left-32 -bottom-40 opacity-[.12]">
+  <div class="relative max-w-4xl mx-auto px-5 lg:px-8 text-center reveal">
+    <i class="fas fa-quote-left text-4xl text-primary-400"></i>
+    <p class="mt-6 font-display font-semibold text-xl sm:text-2xl leading-relaxed text-white/90">A fire can destroy everything in seconds: lives, businesses and futures. With STI&#x27;s advanced fire detection and IoT solutions, you don&#x27;t have to wait to protect what matters. Our technology delivers real-time monitoring, instant alerts and early risk detection, giving you peace of mind and continuous safety.</p>
+  </div>
+</section>
+
+<!-- ============ COMMITMENT ============ -->
+<section id="commitment" class="relative py-24 lg:py-28 bg-mist overflow-hidden">
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <div class="section-badge"><i class="fas fa-handshake text-xs"></i> Our commitment</div>
+      <h2 class="mt-5 font-display font-extrabold text-4xl sm:text-5xl leading-[1.05] text-ink">Your safety, our priority: intelligent fire detection</h2>
+      <div class="accent-divider mx-auto mt-6"></div>
+      <p class="mt-6 text-lg text-ink-400 leading-relaxed">STI delivers advanced, intelligent fire detection solutions that protect lives and assets with IoT technology and real-time risk monitoring.</p>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-6"><div class="reveal card-lift rounded-3xl border border-mist-dark bg-white p-7"><span class="icon-tile w-14 h-14 rounded-2xl bg-ink text-accent-300 flex items-center justify-center text-xl"><i class="fas fa-shield-halved"></i></span><h3 class="mt-5 font-display font-bold text-xl text-ink">Smart risk detection</h3><p class="mt-2 text-ink-400 leading-relaxed">IoT-powered monitoring for early fire prevention.</p></div><div class="reveal r2 card-lift rounded-3xl border border-mist-dark bg-white p-7"><span class="icon-tile w-14 h-14 rounded-2xl grad-bg text-white flex items-center justify-center text-xl"><i class="fas fa-clock"></i></span><h3 class="mt-5 font-display font-bold text-xl text-ink">24/7 safety assurance</h3><p class="mt-2 text-ink-400 leading-relaxed">Constant vigilance to reduce downtime and damage.</p></div><div class="reveal r3 card-lift rounded-3xl border border-mist-dark bg-white p-7"><span class="icon-tile w-14 h-14 rounded-2xl bg-ink text-accent-300 flex items-center justify-center text-xl"><i class="fas fa-gears"></i></span><h3 class="mt-5 font-display font-bold text-xl text-ink">Seamless protection</h3><p class="mt-2 text-ink-400 leading-relaxed">Easily integrates with existing safety systems.</p></div></div>
+  </div>
+</section>
+
+<!-- ============ AUDIENCE ============ -->
+<section id="audience" class="relative py-24 lg:py-28 overflow-hidden">
+  <div class="paper-glow w-[420px] h-[420px] -left-40 top-10 bg-accent-100 opacity-50"></div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-4 reveal lg:sticky lg:top-28">
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="mt-5 font-display font-extrabold text-4xl leading-[1.06] text-ink">Who's this <span class="grad-text">perfect for?</span></h2>
+      <p class="mt-5 text-ink-400 leading-relaxed">The people who live with the risk, the budget and the outcome.</p>
+      <a href="#contact" class="mt-8 btn-ink rounded-full px-6 py-3.5 font-semibold inline-flex items-center gap-2"><i class="fas fa-comments"></i> Let's chat</a>
+    </div>
+    <div class="lg:col-span-8 grid sm:grid-cols-2 xl:grid-cols-3 gap-3"><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span class="text-sm font-semibold text-ink-600">Facility managers</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-helmet-safety"></i></span><span class="text-sm font-semibold text-ink-600">Fire safety officers</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-user-gear"></i></span><span class="text-sm font-semibold text-ink-600">Operations managers</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-user-shield"></i></span><span class="text-sm font-semibold text-ink-600">Risk &amp; compliance officers</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-industry"></i></span><span class="text-sm font-semibold text-ink-600">Industrial site managers</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-building"></i></span><span class="text-sm font-semibold text-ink-600">Smart building developers</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-bolt"></i></span><span class="text-sm font-semibold text-ink-600">Security &amp; safety directors</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-chart-line"></i></span><span class="text-sm font-semibold text-ink-600">Energy &amp; infrastructure managers</span></div><div class="reveal flex items-center gap-3 rounded-2xl border border-mist-dark bg-white px-4 py-3.5 card-lift"><span class="shrink-0 w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-clipboard-check"></i></span><span class="text-sm font-semibold text-ink-600">Procurement officers for safety &amp; technology</span></div></div>
+  </div>
+</section>
+
+<!-- ============ WHERE IT FITS ============ -->
+<section id="fit" class="relative py-24 lg:py-28 bg-ink-800 text-white overflow-hidden">
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal flex justify-center">
+      <img src="./assets/svc-fire-detection-iot-wheel.png" alt="STI service wheel: Detection, Protection and Improvement, with Fire detection &amp; IoT solutions highlighted" class="w-full max-w-[460px] h-auto" width="560" height="550" loading="lazy">
+    </div>
+    <div class="reveal r2">
+      <div class="section-badge dark"><i class="fas fa-circle-nodes text-xs"></i> Detection services</div>
+      <h2 class="mt-5 font-display font-extrabold text-3xl sm:text-4xl leading-tight">Fire risk detection, assessments &amp; energy audits</h2>
+      <p class="mt-4 text-white/65 leading-relaxed">Part of STI's Detect · Protect · Improve offering. Every solution can also sit inside our managed fire-risk programme, from baseline to verified close-out.</p>
+      <div class="mt-8 space-y-3"><a href="fire-detection-iot.html" class="group flex items-center gap-4 rounded-2xl border border-accent/60 bg-white/[.08] p-4 transition" aria-current="page"><span class="shrink-0 w-12 h-12 rounded-xl grad-bg p-2"><img src="./assets/ic-fire.png" alt="" class="w-full h-full object-contain"></span><span class="flex-1 font-display font-bold">Fire detection &amp; IoT solutions</span><span class="text-[.65rem] font-bold uppercase tracking-[.14em] text-accent-300">You are here</span></a><a href="distributed-sensing.html" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.03] hover:border-white/30 p-4 transition" ><span class="shrink-0 w-12 h-12 rounded-xl bg-white/10 p-2"><img src="./assets/ic-sensing.png" alt="" class="w-full h-full object-contain"></span><span class="flex-1 font-display font-bold">Distributed sensing technology</span><i class="fas fa-arrow-right text-white/40 group-hover:text-accent-300 group-hover:translate-x-1 transition"></i></a><a href="transformer-health-monitoring.html" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.03] hover:border-white/30 p-4 transition" ><span class="shrink-0 w-12 h-12 rounded-xl bg-white/10 p-2"><img src="./assets/ic-transformer-health.png" alt="" class="w-full h-full object-contain"></span><span class="flex-1 font-display font-bold">Transformer health &amp; performance monitoring</span><i class="fas fa-arrow-right text-white/40 group-hover:text-accent-300 group-hover:translate-x-1 transition"></i></a></div>
+      <a href="index.html#service" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent-300 hover:text-white transition">See the 8-step managed service <i class="fas fa-arrow-right text-xs"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGOS ============ -->
+<section class="py-16 bg-mist">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <p class="text-center text-xs font-bold uppercase tracking-[.2em] text-ink-400 reveal">Our trusted clients</p>
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal r2">
+        <div class="logo-card rounded-2xl bg-white h-24 flex items-center justify-center px-6 py-4"><img src="./assets/client-epiroc.png" alt="Epiroc" class="max-h-10 w-full object-contain"></div>
+        <div class="logo-card rounded-2xl bg-white h-24 flex items-center justify-center px-6 py-4"><img src="./assets/client-detpak.png" alt="Detpak" class="max-h-10 w-full object-contain"></div>
+        <div class="logo-card rounded-2xl bg-white h-24 flex items-center justify-center px-6 py-4"><img src="./assets/client-newconceptmining.png" alt="New Concept Mining" class="max-h-12 w-full object-contain"></div>
+        <div class="logo-card rounded-2xl bg-white h-24 flex items-center justify-center px-6 py-4"><img src="./assets/client-africanstarpac.png" alt="African Star Pac" class="max-h-16 w-full object-contain"></div>
+        <div class="logo-card rounded-2xl bg-white h-24 flex items-center justify-center px-6 py-4 col-span-2 sm:col-span-1"><img src="./assets/client-ai.png" alt="Client logo" class="max-h-14 w-full object-contain"></div>
+      </div>
+  </div>
+</section>
+
+<!-- ============ ENQUIRE ============ -->
+<section id="contact" class="relative py-24 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <div class="section-badge"><i class="fas fa-comments text-xs"></i> Ready to give us a try?</div>
+      <h2 class="mt-5 font-display font-extrabold text-4xl sm:text-5xl leading-[1.05] text-ink">Detect early, protect always</h2>
+      <div class="accent-divider mx-auto mt-6"></div>
+      <p class="mt-6 text-lg text-ink-400">Eliminate fire risks with STI&#x27;s IoT-powered detection solutions. Get advanced protection today and keep your people and assets safe.</p>
+    </div>
+    <div class="mt-14 grid lg:grid-cols-5 gap-8">
+      <div class="reveal lg:col-span-2 relative overflow-hidden rounded-[28px] bg-ink text-white p-8 sm:p-10">
+        <img src="./assets/mark-512.png" alt="" aria-hidden="true" class="absolute -right-20 -bottom-20 w-72 opacity-15 pointer-events-none">
+        <h3 class="relative font-display font-bold text-2xl">STI Risk</h3>
+        <p class="relative text-white/60 text-sm">Solutions Tech Innovation</p>
+        <ul class="relative mt-8 space-y-6">
+          <li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl grad-bg flex items-center justify-center"><i class="fas fa-phone"></i></span><div><div class="text-xs uppercase tracking-[.14em] text-white/50 font-semibold">Phone</div><a href="tel:+27660650602" class="block font-semibold hover:text-accent-300 transition">066 065 0602</a><a href="tel:+27600760209" class="block font-semibold hover:text-accent-300 transition">+27 60 076 0209</a></div></li>
+          <li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl grad-bg flex items-center justify-center"><i class="fas fa-envelope"></i></span><div><div class="text-xs uppercase tracking-[.14em] text-white/50 font-semibold">Email</div><a href="mailto:mellissa@stirisk.co.za" class="block font-semibold hover:text-accent-300 transition break-all">mellissa@stirisk.co.za</a><a href="mailto:kiril@stirisk.co.za" class="block font-semibold hover:text-accent-300 transition break-all">kiril@stirisk.co.za</a></div></li>
+          <li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl grad-bg flex items-center justify-center"><i class="fas fa-location-dot"></i></span><div><div class="text-xs uppercase tracking-[.14em] text-white/50 font-semibold">Address</div><p class="font-semibold leading-snug">5455 Proton Industrial Park, Proton Road, Johannesburg, South Africa</p></div></li>
+        </ul>
+        <a href="https://wa.me/27660650602?text=Hi%20STI%20Risk%2C%20I%27d%20like%20to%20discuss%20Fire%20detection%20%26%20IoT%20solutions." target="_blank" rel="noopener" class="relative mt-10 inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-3 text-sm font-semibold hover:brightness-110 transition"><i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp</a>
+      </div>
+      <form id="contact-form" class="reveal r2 lg:col-span-3 rounded-[28px] border border-mist-dark p-8 sm:p-10 space-y-5 bg-white shadow-xl shadow-ink/5" data-subject="Fire detection &amp; IoT solutions enquiry" action="javascript:void(0)"><div style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;"><input type="text" name="website_url_hp" tabindex="-1" autocomplete="off"></div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div><label class="label" for="c-name">Full name *</label><input id="c-name" name="Full name" class="field" required autocomplete="name"></div>
+          <div><label class="label" for="c-company">Company</label><input id="c-company" name="Company" class="field" autocomplete="organization"></div>
+          <div><label class="label" for="c-phone">Phone *</label><input id="c-phone" name="Phone" type="tel" class="field" required autocomplete="tel"></div>
+          <div><label class="label" for="c-email">Email *</label><input id="c-email" name="Email" type="email" class="field" required autocomplete="email"></div>
+        </div>
+        <input type="hidden" name="Interest" value="Fire detection &amp; IoT solutions">
+        <div><label class="label" for="c-msg">How can we help? *</label><textarea id="c-msg" name="Message" rows="5" class="field" required placeholder="Tell us about your site and what you need."></textarea></div>
+        <div class="vpc-spam-check" style="margin-top:12px;margin-bottom:8px;"><label for="vpc-spam" class="label">Spam check: what is 3 + 1? *</label><input id="vpc-spam" type="text" inputmode="numeric" name="antispam_answer" required autocomplete="off" placeholder="Your answer" class="field"></div><button type="submit" class="btn-primary w-full sm:w-auto rounded-full px-8 py-4 font-semibold inline-flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Send enquiry</button>
+        <p class="form-status rounded-xl bg-primary-50 text-primary-800 px-4 py-3 text-sm" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink-900 text-white/65 pt-20 pb-28">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="./assets/mark-256.png" alt="Solutions Tech Innovation" class="w-12 h-12">
+        <span class="leading-tight"><span class="block font-display font-extrabold uppercase tracking-wide text-white">Solutions Tech Innovation</span><span class="block text-[.65rem] font-semibold uppercase tracking-[.18em] text-white/45">High-tec risk management &amp; monitoring</span></span>
+      </a>
+      <p class="mt-6 text-sm leading-relaxed max-w-md">One evidence base. One managed programme. Clear accountability across the portfolio. The platform provides the visibility; the managed service coordinates the journey from finding to verified close-out.</p>
+    </div>
+    <div class="md:col-span-3">
+      <h4 class="font-display font-bold text-white">Solutions</h4>
+      <ul class="mt-5 space-y-2.5 text-sm">
+        <li><a href="fire-detection-iot.html" class="hover:text-accent-300 transition">Fire detection &amp; IoT</a></li>
+        <li><a href="distributed-sensing.html" class="hover:text-accent-300 transition">Distributed sensing</a></li>
+        <li><a href="transformer-health-monitoring.html" class="hover:text-accent-300 transition">Transformer health monitoring</a></li>
+        <li><a href="fire-suppression.html" class="hover:text-accent-300 transition">Fire suppression</a></li>
+        <li><a href="surveillance-cyber-security.html" class="hover:text-accent-300 transition">Surveillance &amp; cyber security</a></li>
+        <li><a href="industrial-transformers-backup.html" class="hover:text-accent-300 transition">Industrial transformers &amp; back-up</a></li>
+        <li><a href="digital-twins-reality-capture.html" class="hover:text-accent-300 transition">Digital twins &amp; reality capture</a></li>
+        <li><a href="financed-renewable-energy.html" class="hover:text-accent-300 transition">Financed renewable energy</a></li>
+        <li><a href="energy-efficiency.html" class="hover:text-accent-300 transition">Energy efficiency</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2">
+      <h4 class="font-display font-bold text-white">Explore</h4>
+      <ul class="mt-5 space-y-2.5 text-sm">
+        <li><a href="index.html#problem" class="hover:text-accent-300 transition">The problem</a></li>
+        <li><a href="index.html#service" class="hover:text-accent-300 transition">Managed service</a></li>
+        <li><a href="index.html#scope" class="hover:text-accent-300 transition">Fire-risk scope</a></li>
+        <li><a href="index.html#platform" class="hover:text-accent-300 transition">Platform</a></li>
+        <li><a href="index.html#solutions" class="hover:text-accent-300 transition">Technical solutions</a></li>
+        <li><a href="index.html#cases" class="hover:text-accent-300 transition">Case studies</a></li>
+        <li><a href="index.html#faq" class="hover:text-accent-300 transition">FAQ</a></li>
+        <li><a href="partner-programme.html" class="hover:text-accent-300 transition">Partner programme</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-3">
+      <h4 class="font-display font-bold text-white">Contact</h4>
+      <ul class="mt-5 space-y-3 text-sm">
+        <li class="flex gap-3"><i class="fas fa-phone text-primary-400 mt-1"></i><span><a href="tel:+27660650602" class="hover:text-accent-300 transition">066 065 0602</a><br><a href="tel:+27600760209" class="hover:text-accent-300 transition">+27 60 076 0209</a></span></li>
+        <li class="flex gap-3"><i class="fas fa-envelope text-primary-400 mt-1"></i><span><a href="mailto:mellissa@stirisk.co.za" class="hover:text-accent-300 transition break-all">mellissa@stirisk.co.za</a><br><a href="mailto:kiril@stirisk.co.za" class="hover:text-accent-300 transition break-all">kiril@stirisk.co.za</a></span></li>
+        <li class="flex gap-3"><i class="fas fa-location-dot text-primary-400 mt-1"></i><span>5455 Proton Industrial Park, Proton Road, Johannesburg, South Africa</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/45">
+    <p>&copy; 2026 Solutions Tech Innovation (STI Risk). All rights reserved.</p>
+    <p>Website by <a href="https://vantagepc.co.za" target="_blank" rel="noopener" class="text-white/70 hover:text-accent-300 transition">Vantage Point Consulting</a></p>
+  </div>
+</footer>
+
+<a id="wa-float" href="https://wa.me/27660650602?text=Hi%20STI%20Risk%2C%20I%27d%20like%20to%20discuss%20fire-risk%20management%20for%20our%20sites." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i><span class="wa-tip">Chat on WhatsApp</span></a>
+<button id="to-top" class="fixed left-[28px] bottom-[92px] z-40 w-11 h-11 rounded-full bg-ink text-white shadow-lg shadow-ink/30 hover:bg-primary" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+(function(){
+  var nav=document.getElementById('main-nav');
+  var toTop=document.getElementById('to-top');
+  function onScroll(){
+    var y=window.scrollY;
+    nav.classList.toggle('scrolled', y>80);
+    toTop.classList.toggle('show', y>600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id=a.getAttribute('href'); if(id.length<2) return;
+      var el=document.querySelector(id); if(!el) return;
+      e.preventDefault();
+      window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 70, behavior:'smooth'});
+    });
+  });
+
+  var burger=document.getElementById('burger'), menu=document.getElementById('mobile-menu');
+  function setMenu(open){ menu.classList.toggle('open', open); burger.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); if(open) nav.classList.add('scrolled'); else onScroll(); }
+  burger.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+  menu.querySelectorAll('.mobile-link').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+
+  var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // Count-up (figures are the client's own: 25 years / 12 industries from stirisk.co.za, 50/50 sites from their brochure).
+  var cio=new IntersectionObserver(function(entries){ entries.forEach(function(e){
+    if(!e.isIntersecting) return; cio.unobserve(e.target);
+    var el=e.target, end=+el.dataset.count, t0=null;
+    function step(t){ if(!t0) t0=t; var p=Math.min((t-t0)/1400,1); el.textContent=Math.round(end*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }); },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  // Illustrative platform view: donut + bars animate in when seen.
+  var donut=document.getElementById('donut-val'), bars=document.getElementById('bars');
+  var pio=new IntersectionObserver(function(entries){ entries.forEach(function(e){
+    if(!e.isIntersecting) return; pio.unobserve(e.target);
+    if(e.target===donut){ donut.style.strokeDashoffset=(314.16*(1-(+donut.dataset.pct)/100)).toFixed(2); }
+    else { bars.querySelectorAll('[data-w]').forEach(function(b){ b.style.width=b.dataset.w+'%'; }); }
+  }); },{threshold:.4});
+  if(donut&&bars){ pio.observe(donut); pio.observe(bars); }
+
+  // Case study filters
+  var fbtns=document.querySelectorAll('#case-filters .filter-btn');
+  fbtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f=btn.dataset.filter;
+      fbtns.forEach(function(b){ b.classList.toggle('active', b===btn); });
+      document.querySelectorAll('#case-grid .case-card').forEach(function(c){ c.classList.toggle('hide', f!=='all' && c.dataset.cat!==f); });
+    });
+  });
+
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item=q.parentElement, open=!item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+      item.classList.toggle('open', open); q.setAttribute('aria-expanded', open);
+    });
+  });
+
+  // The form opens the visitor's mail client addressed to mellissa@stirisk.co.za.
+  // The anti-spam listener (injected later) runs after this one and cancels the
+  // submit when it fails, so the hand-off waits a tick and checks defaultPrevented.
+  ['contact-form'].forEach(function(id){
+    var form=document.getElementById(id); if(!form) return;
+    var status=form.querySelector('.form-status');
+    form.addEventListener('submit', function(ev){
+      setTimeout(function(){
+        if(ev.defaultPrevented) return;
+        var lines=[];
+        Array.prototype.forEach.call(form.elements, function(el){
+          if(!el.name || el.name==='website_url_hp' || el.name==='antispam_answer' || el.type==='submit') return;
+          if(el.value.trim()) lines.push(el.name+': '+el.value.trim());
+        });
+        var who=(form.elements['Full name']||{}).value||'';
+        var subject=form.dataset.subject+(who?' from '+who:'');
+        window.location.href='mailto:mellissa@stirisk.co.za?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+        status.textContent='Thank you. Your email app has opened with your enquiry addressed to mellissa@stirisk.co.za. Just press send.';
+        status.classList.add('show');
+      }, 0);
+    });
+  });
+})();
+</script>
+<style>#main-nav:not(.scrolled){background:rgba(21,26,43,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}</style>
+
+<script>
+(function(){
+  var _lt=Date.now();
+  var _ans=4;
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      var hp=f.querySelector('[name="website_url_hp"]');
+      if(hp&&hp.value){e.preventDefault();return false;}
+      if(Date.now()-_lt<3000){e.preventDefault();alert('Please wait a moment before submitting.');return false;}
+      var ma=f.querySelector('[name="antispam_answer"]');
+      if(ma&&parseInt(ma.value)!==_ans){e.preventDefault();alert('Incorrect answer. Please try again.');ma.focus();return false;}
+    });
+  });
+})();
+</script>
+
+<!-- Chatbot Widget -->
+<style>
+  #chatbot-btn { position:fixed; bottom:24px; right:24px; width:62px; height:62px; border-radius:50%; overflow:hidden; padding:0; display:flex; align-items:center; justify-content:center; background:#151a2b; color:#fff; border:2px solid #f7941d; cursor:pointer; box-shadow:0 4px 18px rgba(0,0,0,0.30); font-size:26px; z-index:1000; transition:all 0.3s; }
+  #chatbot-btn-logo { width:78%; height:78%; object-fit:contain; display:block; }
+  #chatbot-label { position:fixed; bottom:98px; right:24px; background:#f7941d; color:#111111; font-weight:700; font-size:13px; padding:8px 16px; border-radius:20px; cursor:pointer; z-index:1000; box-shadow:0 4px 14px rgba(0,0,0,0.28); white-space:nowrap; font-family:inherit; }
+  #chatbot-btn:hover { transform:scale(1.1); box-shadow:0 6px 25px rgba(0,0,0,0.3); }
+  #chatbot-window { position:fixed; bottom:100px; right:12px; width:min(360px,calc(100vw - 24px)); max-height:min(480px,calc(100vh - 140px)); background:#fff; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:1000; display:none; flex-direction:column; overflow:hidden; border:1px solid #e2e8f0; }
+  #chatbot-window.open { display:flex; }
+  #chat-header { background:#e2174b; color:#fff; padding:16px 16px 12px; }
+  #chat-header h3 { margin:0; font-size:15px; font-weight:700; color:#fff; font-family:inherit; }
+  #chat-header p { margin:3px 0 0; font-size:11px; color:rgba(255,255,255,0.85); }
+  #chat-header .status { display:inline-block; width:8px; height:8px; background:#4ade80; border-radius:50%; margin-right:6px; }
+  #chat-messages { flex:1; overflow-y:auto; padding:14px; min-height:160px; max-height:260px; }
+  .chat-msg { max-width:82%; padding:10px 14px; border-radius:14px; margin-bottom:8px; font-size:13px; line-height:1.5; }
+  .chat-bot { background:#f1f5f9; color:#334155; border-bottom-left-radius:4px; }
+  .chat-user { background:#f7941d; color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
+  .chat-typing { background:#f1f5f9; color:#94a3b8; border-bottom-left-radius:4px; font-style:italic; }
+  #chat-quick { border-top:1px solid #f1f5f9; padding:8px 14px; display:flex; flex-wrap:wrap; gap:4px; }
+  .chat-chip { padding:5px 10px; border:1px solid #e2e8f0; background:#fff; color:#475569; border-radius:20px; cursor:pointer; font-size:11px; transition:all 0.2s; white-space:nowrap; }
+  .chat-chip:hover { background:#f7941d; color:#fff; border-color:#f7941d; }
+  #chat-input-row { display:flex; border-top:1px solid #e2e8f0; }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:13px; outline:none; color:#0f172a; background:#fff; caret-color:#0f172a; }
+  #chat-input::placeholder { color:#94a3b8; }
+  #chat-send { background:#f7941d; color:#fff; border:none; padding:12px 16px; cursor:pointer; font-size:14px; }
+  #chat-send:hover { opacity:0.9; }
+
+  /* --- floating widget stack (standard across all builds) --- */
+  #scrollTop, #scroll-top, .scroll-top, #backToTop, #back-to-top, .back-to-top { bottom:148px !important; right:24px !important; z-index:999 !important; }
+  @media (max-width:640px) {
+    #scrollTop, #scroll-top, .scroll-top, #backToTop, #back-to-top, .back-to-top { bottom:144px !important; right:18px !important; }
+  }
+  /* stand down while the chat panel or a full-screen drawer is open */
+  body.chat-open #scrollTop, body.chat-open #scroll-top, body.chat-open .scroll-top, body.chat-open #backToTop, body.chat-open #back-to-top, body.chat-open .back-to-top
+  { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+  body.overlay-open #scrollTop, body.overlay-open #scroll-top, body.overlay-open .scroll-top, body.overlay-open #backToTop, body.overlay-open #back-to-top, body.overlay-open .back-to-top,
+  body.overlay-open #chatbot-btn, body.overlay-open #chatbot-label, body.overlay-open #chatbot-window
+  { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+</style>
+
+<div id="chatbot-label" onclick="toggleChat()">Chat to us 👋</div><button id="chatbot-btn" onclick="toggleChat()" aria-label="Chat with Solutions Tech Innovation (STI Risk)"><img id="chatbot-btn-logo" src="./assets/mark-256.png" alt="Solutions Tech Innovation" style="width:78%;height:78%;object-fit:contain"><span id="chatbot-btn-close" style="display:none;font-size:24px;line-height:1;color:#f7941d;">✕</span></button>
+<div id="chatbot-window">
+  <div id="chat-header">
+    <h3><span class="status"></span>Solutions Tech Innovation (STI Risk)</h3>
+    <p>Usually replies instantly</p>
+  </div>
+  <div id="chat-messages">
+    <div class="chat-msg chat-bot">Hi! 👋 Welcome to Solutions Tech Innovation (STI Risk) — ask me about our fire-risk services, where we are based, or how to reach the team — or type your own question below.</div>
+  </div>
+  <div id="chat-quick">
+    <button class="chat-chip" onclick="askChip('What services do you offer?')">Services</button>
+    <button class="chat-chip" onclick="askChip('Who are you?')">About</button>
+    <button class="chat-chip" onclick="askChip('Where are you based?')">Location</button>
+    <button class="chat-chip" onclick="askChip('How do I contact you?')">Contact</button>
+  </div>
+  <div id="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Type your question..." onkeydown="if(event.key==='Enter')sendMsg()">
+    <button id="chat-send" onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script>
+var chatKB = [{"keywords": ["who", "about", "company", "tell me about"], "answer": "We're Solutions Tech Innovation (STI Risk)! Solutions Tech Innovation (STI Risk) manages the full fire-risk outcome for industrial and commercial sites, from baseline and insurer requirements through engineering review, procurement, delivery and verified close-out. It also delivers fire suppression, detection, transformer monitoring and digital twin technology, with 25 years of experience across 12 industries."}, {"keywords": ["hello", "hi", "hey", "good morning", "good afternoon"], "answer": "Hello! Welcome to Solutions Tech Innovation (STI Risk). How can I help you today?"}, {"keywords": ["thank", "thanks", "cheers", "appreciate"], "answer": "You're welcome! Is there anything else I can help you with?"}, {"keywords": ["bye", "goodbye", "later", "that's all"], "answer": "Thanks for chatting! Don't hesitate to reach out if you need anything. Have a great day!"}, {"keywords": ["service", "offer", "do you", "what do", "provide", "help with"], "answer": "We offer: Managed Fire-Risk Programme, Site Assessment & Baseline, Fire Suppression, Fire Detection & Monitoring, Passive Fire Protection & Compliance, Digital Twins & Reality Capture, Energy & Back-up Power. Would you like details on any specific service?"}, {"keywords": ["managed", "fire-risk", "programme"], "answer": "Managed Fire-Risk Programme: One accountable 8-step programme: discover, assess, align, resolve, plan, procure, deliver and verify."}, {"keywords": ["site", "assessment", "baseline"], "answer": "Site Assessment & Baseline: Site assessment of records, current systems, insurer requirements and material gaps."}, {"keywords": ["fire", "suppression"], "answer": "Fire Suppression: Automatic suppression systems including FM200 clean gas, potassium-based aerosol and wet chemical."}, {"keywords": ["fire", "detection", "monitoring"], "answer": "Fire Detection & Monitoring: Fire detection and IoT solutions, distributed sensing and transformer health monitoring."}, {"keywords": ["passive", "fire", "protection", "compliance"], "answer": "Passive Fire Protection & Compliance: Fire stopping, fire-rated doors, access control and insurer compliance upgrades."}, {"keywords": ["digital", "twins", "reality", "capture"], "answer": "Digital Twins & Reality Capture: Virtual replicas of physical assets for facilities and asset management."}, {"keywords": ["contact", "phone", "call", "email", "reach", "number", "address", "location", "where"], "answer": "Here's how to reach us:<br>\ud83d\udcde <a href=\"tel:0660650602\" style=\"color:#f7941d;text-decoration:underline\">066 065 0602</a><br>\ud83d\udcde <a href=\"tel:+27600760209\" style=\"color:#f7941d;text-decoration:underline\">+27 60 076 0209</a><br>\u2709\ufe0f <a href=\"mailto:mellissa@stirisk.co.za\" style=\"color:#f7941d;text-decoration:underline\">mellissa@stirisk.co.za</a><br>\ud83d\udccd 5455 Proton Industrial Park, Proton Road, Johannesburg, South Africa"}, {"keywords": ["price", "cost", "quote", "how much", "fee", "rate", "charge", "afford"], "answer": "We'd be happy to provide a free quote! Call us at <a href=\"tel:0660650602\" style=\"color:#f7941d;text-decoration:underline\">066 065 0602</a> or email <a href=\"mailto:mellissa@stirisk.co.za\" style=\"color:#f7941d;text-decoration:underline\">mellissa@stirisk.co.za</a>, or fill out the contact form on this page."}, {"keywords": ["emergency", "urgent", "asap", "now", "immediately", "today"], "answer": "For urgent matters, call us now at <a href=\"tel:0660650602\" style=\"color:#f7941d;text-decoration:underline;font-weight:bold\">066 065 0602</a>."}];
+
+function toggleChat(){
+  var w=document.getElementById('chatbot-window');
+  w.classList.toggle('open');
+  var _o=w.classList.contains('open');var _lg=document.getElementById('chatbot-btn-logo');if(_lg)_lg.style.display=_o?'none':'block';document.getElementById('chatbot-btn-close').style.display=_o?'block':'none';document.getElementById('chatbot-label').style.display=_o?'none':'block';document.body.classList.toggle('chat-open',_o);
+  if(w.classList.contains('open'))document.getElementById('chat-input').focus();
+}
+
+function addMsg(from,text){
+  var m=document.getElementById('chat-messages');
+  var d=document.createElement('div');
+  d.className='chat-msg '+(from==='user'?'chat-user':'chat-bot');
+  if(from==='user'){ d.textContent=text; }
+  else { d.innerHTML=text; }
+  m.appendChild(d);
+  m.scrollTop=m.scrollHeight;
+}
+
+function showTyping(){
+  var m=document.getElementById('chat-messages');
+  var d=document.createElement('div');
+  d.className='chat-msg chat-typing';
+  d.id='typing';
+  d.textContent='Typing...';
+  m.appendChild(d);
+  m.scrollTop=m.scrollHeight;
+}
+
+function hideTyping(){
+  var t=document.getElementById('typing');
+  if(t)t.remove();
+}
+
+function findAnswer(q){
+  var ql=q.toLowerCase().split(/\s+/);
+  var best=null, bestScore=0;
+  for(var i=0;i<chatKB.length;i++){
+    var score=0;
+    var keys=chatKB[i].keywords;
+    for(var j=0;j<keys.length;j++){
+      for(var w=0;w<ql.length;w++){
+        if(ql[w]===keys[j] || ql[w].indexOf(keys[j])!==-1) score+=2;
+      }
+    }
+    if(score>bestScore){ bestScore=score; best=chatKB[i]; }
+  }
+  if(best && bestScore>0) return best.answer;
+  return "That\'s a great question! I might not have the full details on that, but our team can definitely help. Give us a call at 066 065 0602 or email mellissa@stirisk.co.za and we\'ll get right back to you.";
+}
+
+function sendMsg(){
+  var inp=document.getElementById('chat-input');
+  var q=inp.value.trim();
+  if(!q)return;
+  addMsg('user',q);
+  inp.value='';
+  showTyping();
+  setTimeout(function(){
+    hideTyping();
+    addMsg('bot',findAnswer(q));
+  },800);
+}
+
+function askChip(q){
+  document.getElementById('chat-input').value=q;
+  sendMsg();
+}
+</script>
+
+<script>
+(function(){
+  var b=document.body;
+  var sync=function(){ b.classList.toggle('overlay-open', b.style.overflow==='hidden'); };
+  if (window.MutationObserver) {
+    new MutationObserver(sync).observe(b, {attributes:true, attributeFilter:['style']});
+  }
+  sync();
+})();
+</script>
+
+</body>
+</html>
