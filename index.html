@@ -447,7 +447,7 @@ tailwind.config = {
       <div class="reveal r2">
         <div class="hub">
           <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <defs><linearGradient id="hubgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2174b"/><stop offset="1" stop-color="#f7941d"/></linearGradient></defs>
+            <defs><linearGradient id="hubgrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="100"><stop offset="0" stop-color="#e2174b"/><stop offset="1" stop-color="#f7941d"/></linearGradient></defs>
             <line x1="50" y1="50" x2="50" y2="9"/>
             <line x1="50" y1="50" x2="82.8" y2="23.8"/>
             <line x1="50" y1="50" x2="90.9" y2="59.3"/>
@@ -1087,7 +1087,7 @@ tailwind.config = {
             </select></div>
         </div>
         <div><label class="label" for="c-msg">How can we help? *</label><textarea id="c-msg" name="Message" rows="5" class="field" required placeholder="Tell us about your sites, systems or insurer requirements."></textarea></div>
-        <div class="vpc-spam-check" style="margin-top:12px;margin-bottom:8px;"><label for="vpc-spam" class="label">Spam check: what is 8 + 4? *</label><input id="vpc-spam" type="text" inputmode="numeric" name="antispam_answer" required autocomplete="off" placeholder="Your answer" class="field"></div><button type="submit" class="btn-primary w-full sm:w-auto rounded-full px-8 py-4 font-semibold inline-flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Send enquiry</button>
+        <div class="vpc-spam-check" style="margin-top:12px;margin-bottom:8px;"><label for="vpc-spam" class="label">Spam check: what is 6 + 8? *</label><input id="vpc-spam" type="text" inputmode="numeric" name="antispam_answer" required autocomplete="off" placeholder="Your answer" class="field"></div><button type="submit" class="btn-primary w-full sm:w-auto rounded-full px-8 py-4 font-semibold inline-flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Send enquiry</button>
         <p class="form-status rounded-xl bg-primary-50 text-primary-800 px-4 py-3 text-sm" role="status"></p>
       </form>
     </div>
@@ -1245,7 +1245,7 @@ tailwind.config = {
 <script>
 (function(){
   var _lt=Date.now();
-  var _ans=12;
+  var _ans=14;
   document.querySelectorAll('form').forEach(function(f){
     f.addEventListener('submit',function(e){
       var hp=f.querySelector('[name="website_url_hp"]');
