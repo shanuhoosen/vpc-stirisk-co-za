@@ -54,7 +54,7 @@ tailwind.config = {
 
   .grad-text { color:#c01140; }
   #hero .grad-text, .bg-ink .grad-text, .text-white .grad-text, #booking .grad-text, #scope .grad-text, .on-dark .grad-text { color:#f9b14d; }
-  .grad-bg { background:linear-gradient(135deg,#e2174b 0%,#f05a2c 55%,#f7941d 100%); }
+  .grad-bg { background:linear-gradient(135deg,#b3103b 0%,#c03a1c 55%,#a8520a 100%); }
 
   /* Parallax hero */
   .hero-bg { background-image:url('./assets/hero-plant.jpg'); background-size:cover; background-position:center; background-attachment:fixed; }
@@ -149,8 +149,8 @@ tailwind.config = {
   .logo-card img { filter:grayscale(1); opacity:.75; transition:filter .3s ease, opacity .3s ease; }
   .logo-card:hover img { filter:none; opacity:1; }
 
-  .faq-item .faq-answer { max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.22,1,.36,1); }
-  .faq-item.open .faq-answer { max-height:360px; }
+  .faq-item .faq-answer { max-height:0; overflow:hidden; visibility:hidden; transition:max-height .45s cubic-bezier(.22,1,.36,1), visibility 0s linear .45s; }
+  .faq-item.open .faq-answer { max-height:360px; visibility:visible; transition:max-height .45s cubic-bezier(.22,1,.36,1), visibility 0s; }
   .faq-item .chev { transition: transform .35s ease; }
   .faq-item.open .chev { transform: rotate(180deg); }
   .faq-item.open { border-color:#f6a9bc; box-shadow:0 12px 32px -14px rgba(226,23,75,.3); }
@@ -337,7 +337,7 @@ tailwind.config = {
     <div class="reveal r2">
       <h2 class="font-display font-extrabold text-4xl sm:text-[2.8rem] leading-[1.06] text-ink">Optimise transformer health for peak performance</h2>
       <p class="mt-5 text-lg text-ink-400 leading-relaxed">Transformers are the backbone of reliable power systems. Our monitoring solutions detect potential failures early, improve efficiency and extend asset lifespan, keeping operations uninterrupted.</p>
-      <ul class="mt-8 space-y-5"><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-signal"></i></span><div><h4 class="font-display font-bold text-ink">Real-time diagnostics</h4><p class="text-sm text-ink-400">Detect early signs of transformer issues.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-plug-circle-check"></i></span><div><h4 class="font-display font-bold text-ink">Predictive maintenance</h4><p class="text-sm text-ink-400">Prevent costly failures and downtime.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-bell"></i></span><div><h4 class="font-display font-bold text-ink">Optimised performance</h4><p class="text-sm text-ink-400">Efficiency, longevity and compliance.</p></div></li></ul>
+      <ul class="mt-8 space-y-5"><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-signal"></i></span><div><h4 class="font-display font-bold text-ink">Real-time diagnostics</h4><p class="text-sm text-ink-500">Detect early signs of transformer issues.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-plug-circle-check"></i></span><div><h4 class="font-display font-bold text-ink">Predictive maintenance</h4><p class="text-sm text-ink-500">Prevent costly failures and downtime.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-bell"></i></span><div><h4 class="font-display font-bold text-ink">Optimised performance</h4><p class="text-sm text-ink-500">Efficiency, longevity and compliance.</p></div></li></ul>
     </div>
   </div>
 </section>
@@ -424,7 +424,7 @@ tailwind.config = {
           <li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl grad-bg flex items-center justify-center"><i class="fas fa-envelope"></i></span><div><div class="text-xs uppercase tracking-[.14em] text-white/50 font-semibold">Email</div><a href="mailto:mellissa@stirisk.co.za" class="block font-semibold hover:text-accent-300 transition break-all">mellissa@stirisk.co.za</a><a href="mailto:kiril@stirisk.co.za" class="block font-semibold hover:text-accent-300 transition break-all">kiril@stirisk.co.za</a></div></li>
           <li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl grad-bg flex items-center justify-center"><i class="fas fa-location-dot"></i></span><div><div class="text-xs uppercase tracking-[.14em] text-white/50 font-semibold">Address</div><p class="font-semibold leading-snug">5455 Proton Industrial Park, Proton Road, Johannesburg, South Africa</p></div></li>
         </ul>
-        <a href="https://wa.me/27660650602?text=Hi%20STI%20Risk%2C%20I%27d%20like%20to%20discuss%20Transformer%20health%20%26%20performance%20monitoring." target="_blank" rel="noopener" class="relative mt-10 inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-3 text-sm font-semibold hover:brightness-110 transition"><i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp</a>
+        <a href="https://wa.me/27660650602?text=Hi%20STI%20Risk%2C%20I%27d%20like%20to%20discuss%20Transformer%20health%20%26%20performance%20monitoring." target="_blank" rel="noopener" class="relative mt-10 inline-flex items-center gap-2 rounded-full bg-[#075E54] text-white px-5 py-3 text-sm font-semibold hover:brightness-110 transition"><i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp</a>
       </div>
       <form id="contact-form" class="reveal r2 lg:col-span-3 rounded-[28px] border border-mist-dark p-8 sm:p-10 space-y-5 bg-white shadow-xl shadow-ink/5" data-subject="Transformer health &amp; performance monitoring enquiry" action="javascript:void(0)"><div style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;"><input type="text" name="website_url_hp" tabindex="-1" autocomplete="off"></div>
         <div class="grid sm:grid-cols-2 gap-5">
@@ -435,7 +435,7 @@ tailwind.config = {
         </div>
         <input type="hidden" name="Interest" value="Transformer health &amp; performance monitoring">
         <div><label class="label" for="c-msg">How can we help? *</label><textarea id="c-msg" name="Message" rows="5" class="field" required placeholder="Tell us about your site and what you need."></textarea></div>
-        <div class="vpc-spam-check" style="margin-top:12px;margin-bottom:8px;"><label for="vpc-spam" class="label">Spam check: what is 3 + 1? *</label><input id="vpc-spam" type="text" inputmode="numeric" name="antispam_answer" required autocomplete="off" placeholder="Your answer" class="field"></div><button type="submit" class="btn-primary w-full sm:w-auto rounded-full px-8 py-4 font-semibold inline-flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Send enquiry</button>
+        <div class="vpc-spam-check" style="margin-top:12px;margin-bottom:8px;"><label for="vpc-spam" class="label">Spam check: what is 6 + 2? *</label><input id="vpc-spam" type="text" inputmode="numeric" name="antispam_answer" required autocomplete="off" placeholder="Your answer" class="field"></div><button type="submit" class="btn-primary w-full sm:w-auto rounded-full px-8 py-4 font-semibold inline-flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Send enquiry</button>
         <p class="form-status rounded-xl bg-primary-50 text-primary-800 px-4 py-3 text-sm" role="status"></p>
       </form>
     </div>
@@ -488,7 +488,7 @@ tailwind.config = {
       </ul>
     </div>
   </div>
-  <div class="max-w-7xl mx-auto px-5 lg:px-8 mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/45">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/60">
     <p>&copy; 2026 Solutions Tech Innovation (STI Risk). All rights reserved.</p>
     <p>Website by <a href="https://vantagepc.co.za" target="_blank" rel="noopener" class="text-white/70 hover:text-accent-300 transition">Vantage Point Consulting</a></p>
   </div>
@@ -591,7 +591,7 @@ tailwind.config = {
 <script>
 (function(){
   var _lt=Date.now();
-  var _ans=4;
+  var _ans=8;
   document.querySelectorAll('form').forEach(function(f){
     f.addEventListener('submit',function(e){
       var hp=f.querySelector('[name="website_url_hp"]');
