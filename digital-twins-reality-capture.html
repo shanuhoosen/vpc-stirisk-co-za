@@ -52,7 +52,8 @@ tailwind.config = {
   .reveal.in { opacity:1; transform:none; }
   .reveal.r2 { transition-delay:.1s } .reveal.r3 { transition-delay:.2s } .reveal.r4 { transition-delay:.3s }
 
-  .grad-text { background:linear-gradient(90deg,#e2174b 0%,#f05a2c 55%,#f7941d 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .grad-text { color:#c01140; }
+  #hero .grad-text, .bg-ink .grad-text, .text-white .grad-text, #booking .grad-text, #scope .grad-text, .on-dark .grad-text { color:#f9b14d; }
   .grad-bg { background:linear-gradient(135deg,#e2174b 0%,#f05a2c 55%,#f7941d 100%); }
 
   /* Parallax hero */
@@ -67,8 +68,7 @@ tailwind.config = {
   .paper-glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
 
   /* Nav */
-  #main-nav { transition: background .35s ease, box-shadow .35s ease, padding .35s ease; }
-  #main-nav.scrolled { background:rgba(255,255,255,.97); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow:0 6px 30px rgba(21,26,43,.08); padding-top:.65rem; padding-bottom:.65rem; }
+  #main-nav.scrolled { padding-top:.65rem; padding-bottom:.65rem; }
   #main-nav .nav-link { color:rgba(255,255,255,.85); }
   #main-nav .nav-link:hover { color:#f9b14d; }
   #main-nav.scrolled .nav-link { color:#2a3146; }
@@ -83,7 +83,7 @@ tailwind.config = {
   .nav-link::after { content:''; position:absolute; left:0; bottom:-6px; width:0; height:2px; background:linear-gradient(90deg,#e2174b,#f7941d); transition:width .3s ease; }
   .nav-link:hover::after { width:100%; }
 
-  #mobile-menu { max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.22,1,.36,1); }
+  #mobile-menu { max-height:0; overflow:hidden; }
   #mobile-menu.open { max-height:640px; }
   .burger-line { display:block; width:22px; height:2px; border-radius:2px; transition: transform .3s ease, opacity .3s ease; }
   #burger.open .l1 { transform:translateY(6px) rotate(45deg); }
@@ -91,12 +91,9 @@ tailwind.config = {
   #burger.open .l3 { transform:translateY(-6px) rotate(-45deg); }
 
   /* Buttons */
-  .btn-primary { background:linear-gradient(135deg,#e2174b,#f05a2c 60%,#f7941d); color:#fff; box-shadow:0 4px 20px rgba(226,23,75,.4); transition:transform .25s ease, box-shadow .25s ease; }
-  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(226,23,75,.55); }
+  .btn-primary { background:linear-gradient(135deg,#b3103b,#c7381a); color:#fff; box-shadow:0 4px 20px rgba(226,23,75,.4); transition:transform .25s ease, box-shadow .25s ease; }
   .btn-ink { background:#151a2b; color:#fff; box-shadow:0 4px 20px rgba(21,26,43,.25); transition:transform .25s ease, box-shadow .25s ease, background .25s ease; }
-  .btn-ink:hover { transform:translateY(-2px); background:#1f2538; box-shadow:0 8px 32px rgba(21,26,43,.35); }
-  .btn-outline { border:2px solid rgba(255,255,255,.6); color:#fff; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); transition:transform .25s ease, background .25s ease, border-color .25s ease; }
-  .btn-outline:hover { transform:translateY(-2px); background:rgba(255,255,255,.1); border-color:#fff; }
+  .btn-outline { border:2px solid rgba(255,255,255,.6); color:#fff; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition:transform .25s ease-out, background .25s ease, border-color .25s ease; }
 
   .eyebrow { display:inline-flex; align-items:center; gap:.75rem; font-size:.78rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#5b6480; }
   .eyebrow::before { content:''; width:42px; height:2px; background:linear-gradient(90deg,#e2174b,#f7941d); border-radius:2px; }
@@ -105,9 +102,7 @@ tailwind.config = {
   .accent-divider { width:48px; height:3px; background:linear-gradient(90deg,#e2174b,#f7941d); border-radius:4px; }
 
   .card-lift { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease; }
-  .card-lift:hover { transform:translateY(-6px); box-shadow:0 24px 50px -14px rgba(118,11,41,.22); border-color:#f6a9bc; }
   .icon-tile { transition: transform .35s cubic-bezier(.22,1,.36,1); }
-  .card-lift:hover .icon-tile { transform: scale(1.08) rotate(-3deg); }
   .num-chip { display:inline-flex; align-items:center; justify-content:center; min-width:2.4rem; height:2.4rem; border-radius:10px; font-family:Outfit,sans-serif; font-weight:800; color:#fff; font-size:.95rem; }
   .num-chip.red { background:#e2174b; } .num-chip.orange { background:#f7941d; }
 
@@ -124,7 +119,6 @@ tailwind.config = {
   .hub svg.links line { stroke:url(#hubgrad); stroke-width:1.6; stroke-dasharray:5 7; animation:dash 1.6s linear infinite; }
   .hub-center { position:absolute; left:50%; top:50%; width:38%; aspect-ratio:1/1; transform:translate(-50%,-50%); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#fff; box-shadow:0 0 0 18px rgba(240,90,44,.08), 0 0 0 36px rgba(240,90,44,.05), 0 30px 60px -20px rgba(226,23,75,.6); }
   .hub-node { position:absolute; width:23%; aspect-ratio:1/1; transform:translate(-50%,-50%); border-radius:50%; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3rem; text-align:center; box-shadow:0 12px 30px -12px rgba(21,26,43,.25); transition:transform .3s ease, box-shadow .3s ease; }
-  .hub-node:hover { transform:translate(-50%,-50%) scale(1.07); box-shadow:0 18px 40px -12px rgba(226,23,75,.35); }
   .hub-node.r { border:2px solid #f6a9bc; } .hub-node.o { border:2px solid #fbcb88; }
   .hub-node span { font-size:clamp(.6rem,1.6vw,.78rem); font-weight:600; color:#1f2538; line-height:1.15; padding:0 .3rem; }
   .hub-node i { font-size:clamp(.9rem,2.4vw,1.25rem); }
@@ -133,7 +127,6 @@ tailwind.config = {
   .step-circle { width:92px; height:92px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; position:relative; transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
   .step-circle.r { border:2px solid #f6a9bc; box-shadow:0 0 0 8px rgba(226,23,75,.05); color:#e2174b; }
   .step-circle.o { border:2px solid #fbcb88; box-shadow:0 0 0 8px rgba(247,148,29,.06); color:#f7941d; }
-  .step:hover .step-circle { transform:translateY(-4px) scale(1.05); box-shadow:0 16px 34px -12px rgba(226,23,75,.4); }
   .step-num { position:absolute; top:-6px; right:-6px; width:30px; height:30px; border-radius:50%; color:#fff; font-family:Outfit,sans-serif; font-weight:800; font-size:.8rem; display:flex; align-items:center; justify-content:center; border:3px solid #fff; }
   .step-arrow { color:#f07592; }
 
@@ -143,20 +136,16 @@ tailwind.config = {
   .bar { height:8px; border-radius:6px; background:#ecedf3; overflow:hidden; }
   .bar > div { height:100%; border-radius:6px; width:0; transition:width 1.4s cubic-bezier(.22,1,.36,1); }
   .stake { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
-  .stake:hover { transform:translateX(4px); border-color:#f6a9bc; box-shadow:0 12px 30px -16px rgba(226,23,75,.35); }
   .chain-dot { width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.1rem; box-shadow:0 0 0 6px rgba(255,255,255,.06); transition:transform .3s ease; }
-  .chain-item:hover .chain-dot { transform:scale(1.1); }
 
   /* Case studies */
   .case-card { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, opacity .3s ease; }
-  .case-card:hover { transform:translateY(-5px); box-shadow:0 22px 44px -18px rgba(21,26,43,.3); }
   .case-card.hide { display:none; }
-  .filter-btn { border:1.5px solid #ecedf3; color:#2a3146; background:#fff; transition: all .2s ease; }
+  .filter-btn { border:1.5px solid #ecedf3; color:#2a3146; background:#fff; transition: background-color .2s ease-out, border-color .2s ease-out, color .2s ease-out, transform .16s ease-out; }
   .filter-btn:hover { border-color:#f6a9bc; color:#c01140; }
   .filter-btn.active { background:#151a2b; border-color:#151a2b; color:#fff; }
 
   .logo-card { transition: transform .3s ease, box-shadow .3s ease; }
-  .logo-card:hover { transform:translateY(-4px); box-shadow:0 16px 34px -16px rgba(21,26,43,.3); }
   .logo-card img { filter:grayscale(1); opacity:.75; transition:filter .3s ease, opacity .3s ease; }
   .logo-card:hover img { filter:none; opacity:1; }
 
@@ -166,24 +155,99 @@ tailwind.config = {
   .faq-item.open .chev { transform: rotate(180deg); }
   .faq-item.open { border-color:#f6a9bc; box-shadow:0 12px 32px -14px rgba(226,23,75,.3); }
 
-  .field { width:100%; border:1.5px solid #e3e5ee; border-radius:12px; padding:.8rem 1rem; font:inherit; font-size:.95rem; background:#fff; color:#1f2538; transition:border-color .2s ease, box-shadow .2s ease; }
+  .field { width:100%; border:1.5px solid #e3e5ee; border-radius:12px; padding:.8rem 1rem; font:inherit; font-size:1rem; background:#fff; color:#1f2538; transition:border-color .2s ease, box-shadow .2s ease; }
   .field:focus { outline:none; border-color:#e2174b; box-shadow:0 0 0 4px rgba(226,23,75,.12); }
   .label { display:block; font-size:.82rem; font-weight:600; color:#2a3146; margin-bottom:.4rem; }
 
   .scroll-mouse { width:24px; height:38px; border:2px solid rgba(255,255,255,.55); border-radius:14px; position:relative; }
   .scroll-mouse::after { content:''; position:absolute; left:50%; top:7px; width:4px; height:8px; margin-left:-2px; border-radius:2px; background:#f7941d; animation:scrollDot 1.8s ease-in-out infinite; }
 
-  #to-top { opacity:0; pointer-events:none; transform:translateY(12px); transition:all .35s ease; }
+  #to-top { opacity:0; pointer-events:none; transform:translateY(12px); }
   #to-top.show { opacity:1; pointer-events:auto; transform:none; }
 
   #wa-float { position:fixed; left:22px; bottom:22px; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow:0 4px 20px rgba(37,211,102,.4); z-index:9998; transition:transform .25s ease, box-shadow .25s ease; }
-  #wa-float:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 8px 30px rgba(37,211,102,.55); }
-  #wa-float .wa-tip { position:absolute; left:66px; white-space:nowrap; background:#151a2b; color:#fff; font-size:.78rem; font-weight:600; padding:.4rem .7rem; border-radius:8px; opacity:0; transform:translateX(-6px); transition:all .25s ease; pointer-events:none; }
-  #wa-float:hover .wa-tip { opacity:1; transform:none; }
+  #wa-float .wa-tip { position:absolute; left:66px; white-space:nowrap; background:#151a2b; color:#fff; font-size:.78rem; font-weight:600; padding:.4rem .7rem; border-radius:8px; opacity:0; transform:translateX(-6px); transition:opacity .2s ease-out, transform .2s ease-out; pointer-events:none; }
 
   section[id] { scroll-margin-top:84px; }
   .form-status { display:none; }
   .form-status.show { display:block; }
+  @media (hover:hover) {
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(226,23,75,.55); }
+    .btn-ink:hover { transform:translateY(-2px); background:#1f2538; box-shadow:0 8px 32px rgba(21,26,43,.35); }
+    .btn-outline:hover { transform:translateY(-2px); background:rgba(255,255,255,.1); border-color:#fff; }
+    .card-lift:hover { transform:translateY(-6px); box-shadow:0 24px 50px -14px rgba(118,11,41,.22); border-color:#f6a9bc; }
+    .card-lift:hover .icon-tile { transform: scale(1.08) rotate(-3deg); }
+    .hub-node:hover { transform:translate(-50%,-50%) scale(1.07); box-shadow:0 18px 40px -12px rgba(226,23,75,.35); }
+    .step:hover .step-circle { transform:translateY(-4px) scale(1.05); box-shadow:0 16px 34px -12px rgba(226,23,75,.4); }
+    .stake:hover { transform:translateX(4px); border-color:#f6a9bc; box-shadow:0 12px 30px -16px rgba(226,23,75,.35); }
+    .chain-item:hover .chain-dot { transform:scale(1.1); }
+    .case-card:hover { transform:translateY(-5px); box-shadow:0 22px 44px -18px rgba(21,26,43,.3); }
+    .logo-card:hover { transform:translateY(-4px); box-shadow:0 16px 34px -16px rgba(21,26,43,.3); }
+    #wa-float:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 8px 30px rgba(37,211,102,.55); }
+    #wa-float:hover .wa-tip { opacity:1; transform:none; }
+  }
+
+  /* ===== Design gate + house glass layer (BUILD_RULES.md section 10) ===== */
+  ::selection { background:#c01140; color:#fff; }
+  :focus-visible { outline:3px solid #f7941d; outline-offset:3px; border-radius:6px; }
+  a, button, [role=button] { -webkit-tap-highlight-color:transparent; }
+  .btn-primary:active, .btn-ink:active, .btn-outline:active, .filter-btn:active, #to-top:active, #wa-float:active { transform:scale(.97); }
+  .tint-chip { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22); }
+  .fade-up { animation-duration:.7s; }
+  .reveal { transition-duration:.6s; }
+
+  /* Glass nav: transparent over the hero, a real material once scrolled, soft scroll edge instead of a divider */
+  #main-nav { transition: background-color .3s cubic-bezier(.23,1,.32,1), box-shadow .3s cubic-bezier(.23,1,.32,1), padding .3s cubic-bezier(.23,1,.32,1), backdrop-filter .3s cubic-bezier(.23,1,.32,1); }
+  #main-nav.scrolled { background:rgba(255,255,255,.68); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.55), 0 10px 30px -12px rgba(21,26,43,.22); }
+  #main-nav::after { content:''; position:absolute; left:0; right:0; top:100%; height:18px; pointer-events:none; opacity:0;
+    background:linear-gradient(to bottom, rgba(21,26,43,.07), rgba(21,26,43,0)); transition:opacity .3s cubic-bezier(.23,1,.32,1); }
+  #main-nav.scrolled::after { opacity:1; }
+  #main-nav.scrolled .nav-link { color:#151a2b; font-weight:600; letter-spacing:.005em; }
+  #main-nav.scrolled .brand-sub { color:#3b4360; }
+  #main-nav:has(#mobile-menu.open) { background:rgba(255,255,255,.8); }
+
+  /* Mobile menu sheet materializes (blur + scale + opacity), exits faster */
+  #mobile-menu { opacity:0; transform:translateY(-6px) scale(.98); transform-origin:top center; filter:blur(4px);
+    transition: max-height .26s cubic-bezier(.23,1,.32,1), opacity .16s ease-out, transform .16s ease-out, filter .16s ease-out; }
+  #mobile-menu.open { opacity:1; transform:none; filter:none;
+    transition: max-height .28s cubic-bezier(.23,1,.32,1), opacity .26s cubic-bezier(.23,1,.32,1), transform .26s cubic-bezier(.23,1,.32,1), filter .26s cubic-bezier(.23,1,.32,1); }
+  #mobile-menu .mobile-link:not(.btn-primary) { color:#151a2b; font-weight:600; }
+
+  /* Floating chrome: back-to-top and the chat window are glass too */
+  #to-top { background:rgba(21,26,43,.62); backdrop-filter:blur(16px) saturate(170%); -webkit-backdrop-filter:blur(16px) saturate(170%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 10px 24px -10px rgba(13,17,29,.5);
+    transition: opacity .26s cubic-bezier(.23,1,.32,1), transform .26s cubic-bezier(.23,1,.32,1), background-color .2s ease-out; }
+  #chatbot-window { background:rgba(255,255,255,.8) !important; backdrop-filter:blur(22px) saturate(180%); -webkit-backdrop-filter:blur(22px) saturate(180%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 24px 60px -18px rgba(21,26,43,.45) !important; }
+  #chatbot-window.open { animation: glassIn .28s cubic-bezier(.23,1,.32,1) both; }
+  @keyframes glassIn { from { opacity:0; transform:translateY(8px) scale(.96); }
+                       to   { opacity:1; transform:none; } }
+
+  /* 40px+ tap targets without moving the layout */
+  #hero > a[href$=problem] { min-width:44px; min-height:44px; justify-content:center; }
+  /* Hero stat tiles are content, not chrome: a tint, no blur */
+  .glass { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); backdrop-filter:none; -webkit-backdrop-filter:none; }
+
+  @media (prefers-reduced-transparency: reduce) {
+    #main-nav.scrolled, #main-nav:has(#mobile-menu.open) { background:#fff; backdrop-filter:none; -webkit-backdrop-filter:none; }
+    #to-top { background:#151a2b; backdrop-filter:none; -webkit-backdrop-filter:none; }
+    #chatbot-window { background:#fff !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
+    .btn-outline { backdrop-filter:none; -webkit-backdrop-filter:none; background:rgba(13,17,29,.55); }
+  }
+  @media (prefers-contrast: more) {
+    #main-nav.scrolled { background:rgba(255,255,255,.97); box-shadow:0 1px 0 #151a2b; }
+    #to-top { background:#151a2b; border:2px solid #fff; }
+    #chatbot-window { background:#fff !important; border:2px solid #151a2b !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+    .fade-up, .reveal { opacity:1 !important; transform:none !important; animation:none !important; }
+    .ring-deco, .stat-ring.solid, .hub svg.links line, .scroll-mouse::after { animation:none !important; }
+    .hero-bg, .parallax-band { background-attachment:scroll; }
+    #mobile-menu { filter:none; transform:none; }
+    #chatbot-window.open { animation:none; }
+  }
 </style>
   <link rel="icon" href="./assets/favicon.png">
   <link rel="shortcut icon" href="./assets/favicon.png">
@@ -217,7 +281,7 @@ tailwind.config = {
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="xl:hidden bg-white">
+  <div id="mobile-menu" class="xl:hidden">
     <div class="px-5 py-4 flex flex-col gap-1 text-ink-700 font-medium border-t border-mist-dark">
       <a href="index.html#problem" class="mobile-link py-2.5">The problem</a>
       <a href="index.html#service" class="mobile-link py-2.5">Managed service</a>
@@ -235,7 +299,7 @@ tailwind.config = {
 
 
 <!-- ============ HERO ============ -->
-<section id="hero" class="relative min-h-[80vh] flex items-center overflow-hidden">
+<section id="hero" class="relative min-h-[80svh] bg-ink flex items-center overflow-hidden">
   <div class="hero-bg absolute inset-0" style="background-image:url('./assets/svc-digital-twins-reality-capture-b.jpg')"></div>
   <div class="hero-overlay absolute inset-0"></div>
   <img src="./assets/mark-512.png" alt="" aria-hidden="true" class="ring-deco w-[560px] -right-40 -top-24 opacity-[.12] hidden md:block">
@@ -248,7 +312,7 @@ tailwind.config = {
     </nav>
     <div class="mt-6 flex items-center gap-4 fade-up d2">
       <span class="w-16 h-16 rounded-2xl grad-bg p-3 shadow-lg shadow-primary/30"><img src="./assets/ic-digital-twin.png" alt="" class="w-full h-full object-contain"></span>
-      <span class="glass rounded-full px-4 py-2 text-white/85 text-xs font-semibold uppercase tracking-[.16em]">Digital twins &amp; reality capture</span>
+      <span class="tint-chip rounded-full px-4 py-2 text-white text-sm font-semibold">Digital twins &amp; reality capture</span>
     </div>
     <h1 class="fade-up d3 mt-6 font-display font-extrabold text-white text-[2.4rem] leading-[1.05] sm:text-6xl max-w-4xl">Transforming reality into actionable intelligence</h1>
     <p class="fade-up d4 mt-5 font-display font-bold text-2xl sm:text-3xl grad-text inline-block">Optimise today, thrive tomorrow.</p>
@@ -271,8 +335,7 @@ tailwind.config = {
       </div>
     </div>
     <div class="reveal r2">
-      <span class="eyebrow">Digital twins &amp; reality capture</span>
-      <h2 class="mt-5 font-display font-extrabold text-4xl sm:text-[2.8rem] leading-[1.06] text-ink">Bridging the physical and digital worlds</h2>
+      <h2 class="font-display font-extrabold text-4xl sm:text-[2.8rem] leading-[1.06] text-ink">Bridging the physical and digital worlds</h2>
       <p class="mt-5 text-lg text-ink-400 leading-relaxed">Digital twins and reality capture provide immersive, data-rich models of assets and environments, improving operational efficiency, predictive maintenance and risk management across industries.</p>
       <ul class="mt-8 space-y-5"><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-signal"></i></span><div><h4 class="font-display font-bold text-ink">Real-time insights</h4><p class="text-sm text-ink-400">Proactive decision-making and efficiency.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center"><i class="fas fa-plug-circle-check"></i></span><div><h4 class="font-display font-bold text-ink">High-accuracy 3D modelling</h4><p class="text-sm text-ink-400">Fewer errors and better planning.</p></div></li><li class="flex gap-4"><span class="shrink-0 w-11 h-11 rounded-xl bg-primary-50 text-primary flex items-center justify-center"><i class="fas fa-bell"></i></span><div><h4 class="font-display font-bold text-ink">Seamless integration</h4><p class="text-sm text-ink-400">Works with existing systems for enhanced asset management.</p></div></li></ul>
     </div>
@@ -293,8 +356,7 @@ tailwind.config = {
 <section id="commitment" class="relative py-24 lg:py-28 bg-mist overflow-hidden">
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
     <div class="text-center max-w-3xl mx-auto reveal">
-      <div class="section-badge"><i class="fas fa-handshake text-xs"></i> Our commitment</div>
-      <h2 class="mt-5 font-display font-extrabold text-4xl sm:text-5xl leading-[1.05] text-ink">Precision, efficiency and control, redefined</h2>
+      <h2 class="font-display font-extrabold text-4xl sm:text-5xl leading-[1.05] text-ink">Precision, efficiency and control, redefined</h2>
       <div class="accent-divider mx-auto mt-6"></div>
       <p class="mt-6 text-lg text-ink-400 leading-relaxed">STI delivers digital twin and reality capture solutions with high accuracy, real-time monitoring and seamless integration for industries looking to optimise performance and minimise risk.</p>
     </div>
@@ -307,8 +369,7 @@ tailwind.config = {
   <div class="paper-glow w-[420px] h-[420px] -left-40 top-10 bg-accent-100 opacity-50"></div>
   <div class="relative max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">
     <div class="lg:col-span-4 reveal lg:sticky lg:top-28">
-      <span class="eyebrow">Who it's for</span>
-      <h2 class="mt-5 font-display font-extrabold text-4xl leading-[1.06] text-ink">Who's this <span class="grad-text">perfect for?</span></h2>
+      <h2 class="font-display font-extrabold text-4xl leading-[1.06] text-ink">Who's this <span class="grad-text">perfect for?</span></h2>
       <p class="mt-5 text-ink-400 leading-relaxed">The people who live with the risk, the budget and the outcome.</p>
       <a href="#contact" class="mt-8 btn-ink rounded-full px-6 py-3.5 font-semibold inline-flex items-center gap-2"><i class="fas fa-comments"></i> Let's chat</a>
     </div>
@@ -323,8 +384,7 @@ tailwind.config = {
       <img src="./assets/svc-digital-twins-reality-capture-wheel.png" alt="STI service wheel: Detection, Protection and Improvement, with Digital twins &amp; reality capture highlighted" class="w-full max-w-[460px] h-auto" width="556" height="560" loading="lazy">
     </div>
     <div class="reveal r2">
-      <div class="section-badge dark"><i class="fas fa-circle-nodes text-xs"></i> Improvement services</div>
-      <h2 class="mt-5 font-display font-extrabold text-3xl sm:text-4xl leading-tight">Renewable energy solutions &amp; digital twins</h2>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl leading-tight">Renewable energy solutions &amp; digital twins</h2>
       <p class="mt-4 text-white/65 leading-relaxed">Part of STI's Detect · Protect · Improve offering. Every solution can also sit inside our managed fire-risk programme, from baseline to verified close-out.</p>
       <div class="mt-8 space-y-3"><a href="digital-twins-reality-capture.html" class="group flex items-center gap-4 rounded-2xl border border-accent/60 bg-white/[.08] p-4 transition" aria-current="page"><span class="shrink-0 w-12 h-12 rounded-xl grad-bg p-2"><img src="./assets/ic-digital-twin.png" alt="" class="w-full h-full object-contain"></span><span class="flex-1 font-display font-bold">Digital twins &amp; reality capture</span><span class="text-[.65rem] font-bold uppercase tracking-[.14em] text-accent-300">You are here</span></a><a href="financed-renewable-energy.html" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.03] hover:border-white/30 p-4 transition" ><span class="shrink-0 w-12 h-12 rounded-xl bg-white/10 p-2"><img src="./assets/ic-renewable.png" alt="" class="w-full h-full object-contain"></span><span class="flex-1 font-display font-bold">Financed renewable energy</span><i class="fas fa-arrow-right text-white/40 group-hover:text-accent-300 group-hover:translate-x-1 transition"></i></a><a href="energy-efficiency.html" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.03] hover:border-white/30 p-4 transition" ><span class="shrink-0 w-12 h-12 rounded-xl bg-white/10 p-2"><img src="./assets/ic-efficiency.png" alt="" class="w-full h-full object-contain"></span><span class="flex-1 font-display font-bold">Energy efficiency</span><i class="fas fa-arrow-right text-white/40 group-hover:text-accent-300 group-hover:translate-x-1 transition"></i></a></div>
       <a href="index.html#service" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent-300 hover:text-white transition">See the 8-step managed service <i class="fas fa-arrow-right text-xs"></i></a>
@@ -350,8 +410,7 @@ tailwind.config = {
 <section id="contact" class="relative py-24 lg:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-5 lg:px-8">
     <div class="text-center max-w-2xl mx-auto reveal">
-      <div class="section-badge"><i class="fas fa-comments text-xs"></i> Ready to give us a try?</div>
-      <h2 class="mt-5 font-display font-extrabold text-4xl sm:text-5xl leading-[1.05] text-ink">See your world like never before</h2>
+      <h2 class="font-display font-extrabold text-4xl sm:text-5xl leading-[1.05] text-ink">See your world like never before</h2>
       <div class="accent-divider mx-auto mt-6"></div>
       <p class="mt-6 text-lg text-ink-400">Unlock the power of digital twins and reality capture. Turn your assets into intelligent, actionable data.</p>
     </div>
@@ -376,7 +435,7 @@ tailwind.config = {
         </div>
         <input type="hidden" name="Interest" value="Digital twins &amp; reality capture">
         <div><label class="label" for="c-msg">How can we help? *</label><textarea id="c-msg" name="Message" rows="5" class="field" required placeholder="Tell us about your site and what you need."></textarea></div>
-        <div class="vpc-spam-check" style="margin-top:12px;margin-bottom:8px;"><label for="vpc-spam" class="label">Spam check: what is 4 + 3? *</label><input id="vpc-spam" type="text" inputmode="numeric" name="antispam_answer" required autocomplete="off" placeholder="Your answer" class="field"></div><button type="submit" class="btn-primary w-full sm:w-auto rounded-full px-8 py-4 font-semibold inline-flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Send enquiry</button>
+        <div class="vpc-spam-check" style="margin-top:12px;margin-bottom:8px;"><label for="vpc-spam" class="label">Spam check: what is 3 + 2? *</label><input id="vpc-spam" type="text" inputmode="numeric" name="antispam_answer" required autocomplete="off" placeholder="Your answer" class="field"></div><button type="submit" class="btn-primary w-full sm:w-auto rounded-full px-8 py-4 font-semibold inline-flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Send enquiry</button>
         <p class="form-status rounded-xl bg-primary-50 text-primary-800 px-4 py-3 text-sm" role="status"></p>
       </form>
     </div>
@@ -444,7 +503,7 @@ tailwind.config = {
   var toTop=document.getElementById('to-top');
   function onScroll(){
     var y=window.scrollY;
-    nav.classList.toggle('scrolled', y>80);
+    nav.classList.toggle('scrolled', y>40 || document.getElementById('mobile-menu').classList.contains('open'));
     toTop.classList.toggle('show', y>600);
   }
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
@@ -532,7 +591,7 @@ tailwind.config = {
 <script>
 (function(){
   var _lt=Date.now();
-  var _ans=7;
+  var _ans=5;
   document.querySelectorAll('form').forEach(function(f){
     f.addEventListener('submit',function(e){
       var hp=f.querySelector('[name="website_url_hp"]');
@@ -547,11 +606,11 @@ tailwind.config = {
 
 <!-- Chatbot Widget -->
 <style>
-  #chatbot-btn { position:fixed; bottom:24px; right:24px; width:62px; height:62px; border-radius:50%; overflow:hidden; padding:0; display:flex; align-items:center; justify-content:center; background:#151a2b; color:#fff; border:2px solid #f7941d; cursor:pointer; box-shadow:0 4px 18px rgba(0,0,0,0.30); font-size:26px; z-index:1000; transition:all 0.3s; }
+  #chatbot-btn { position:fixed; bottom:24px; right:24px; width:62px; height:62px; border-radius:50%; overflow:hidden; padding:0; display:flex; align-items:center; justify-content:center; background:#151a2b; color:#fff; border:2px solid #f7941d; cursor:pointer; box-shadow:0 4px 18px rgba(0,0,0,0.30); font-size:26px; z-index:1000; transition:transform .3s ease-out, box-shadow .3s ease-out, background-color .3s ease-out; }
   #chatbot-btn-logo { width:78%; height:78%; object-fit:contain; display:block; }
   #chatbot-label { position:fixed; bottom:98px; right:24px; background:#f7941d; color:#111111; font-weight:700; font-size:13px; padding:8px 16px; border-radius:20px; cursor:pointer; z-index:1000; box-shadow:0 4px 14px rgba(0,0,0,0.28); white-space:nowrap; font-family:inherit; }
   #chatbot-btn:hover { transform:scale(1.1); box-shadow:0 6px 25px rgba(0,0,0,0.3); }
-  #chatbot-window { position:fixed; bottom:100px; right:12px; width:min(360px,calc(100vw - 24px)); max-height:min(480px,calc(100vh - 140px)); background:#fff; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:1000; display:none; flex-direction:column; overflow:hidden; border:1px solid #e2e8f0; }
+  #chatbot-window { position:fixed; bottom:100px; right:12px; width:min(360px,calc(100vw - 24px)); max-height:min(480px,calc(100dvh - 140px)); background:#fff; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.15); z-index:1000; display:none; flex-direction:column; overflow:hidden; border:1px solid #e2e8f0; }
   #chatbot-window.open { display:flex; }
   #chat-header { background:#e2174b; color:#fff; padding:16px 16px 12px; }
   #chat-header h3 { margin:0; font-size:15px; font-weight:700; color:#fff; font-family:inherit; }
@@ -563,7 +622,7 @@ tailwind.config = {
   .chat-user { background:#f7941d; color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
   .chat-typing { background:#f1f5f9; color:#94a3b8; border-bottom-left-radius:4px; font-style:italic; }
   #chat-quick { border-top:1px solid #f1f5f9; padding:8px 14px; display:flex; flex-wrap:wrap; gap:4px; }
-  .chat-chip { padding:5px 10px; border:1px solid #e2e8f0; background:#fff; color:#475569; border-radius:20px; cursor:pointer; font-size:11px; transition:all 0.2s; white-space:nowrap; }
+  .chat-chip { padding:5px 10px; border:1px solid #e2e8f0; background:#fff; color:#475569; border-radius:20px; cursor:pointer; font-size:11px; transition:background-color .2s ease-out, border-color .2s ease-out, color .2s ease-out; white-space:nowrap; }
   .chat-chip:hover { background:#f7941d; color:#fff; border-color:#f7941d; }
   #chat-input-row { display:flex; border-top:1px solid #e2e8f0; }
   #chat-input { flex:1; border:none; padding:12px 14px; font-size:13px; outline:none; color:#0f172a; background:#fff; caret-color:#0f172a; }
@@ -584,7 +643,7 @@ tailwind.config = {
   { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
 </style>
 
-<div id="chatbot-label" onclick="toggleChat()">Chat to us 👋</div><button id="chatbot-btn" onclick="toggleChat()" aria-label="Chat with Solutions Tech Innovation (STI Risk)"><img id="chatbot-btn-logo" src="./assets/mark-256.png" alt="Solutions Tech Innovation" style="width:78%;height:78%;object-fit:contain"><span id="chatbot-btn-close" style="display:none;font-size:24px;line-height:1;color:#f7941d;">✕</span></button>
+<div id="chatbot-label" onclick="toggleChat()">Chat to us 👋</div><script>(function(){var l=document.getElementById('chatbot-label');function f(){var b=innerHeight+scrollY>=document.documentElement.scrollHeight-140;l.style.visibility=b?'hidden':'';}addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();})();</script><button id="chatbot-btn" onclick="toggleChat()" aria-label="Chat with Solutions Tech Innovation (STI Risk)"><img id="chatbot-btn-logo" src="./assets/mark-256.png" alt="Solutions Tech Innovation" style="width:78%;height:78%;object-fit:contain"><span id="chatbot-btn-close" style="display:none;font-size:24px;line-height:1;color:#f7941d;">✕</span></button>
 <div id="chatbot-window">
   <div id="chat-header">
     <h3><span class="status"></span>Solutions Tech Innovation (STI Risk)</h3>
